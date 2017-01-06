@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuctionWebsite
+namespace Kreation
 {
-    class Sale
+    public class Sale
     {
-        public Product Product
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-    }
+        #region Properties
+        [Key]
+        public int Id { get; set; }
+        public virtual Seller Seller { get; set; }
+        public virtual Product Product { get; set; }       
+        // public virtual Auction Auction { get; set; }
+        // not able to create database with the line that got commented above, why? error message below:
+        // Message=Unable to determine the principal end of an association between the types 'Kreation.Sale' and 'Kreation.Auction'. 
+        // The principal end of this association must be explicitly configured using either the relationship fluent API or data annotations.
+        #endregion
+}
 }

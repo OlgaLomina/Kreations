@@ -4,22 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuctionWebsite
+namespace Kreation
 {
-    class Payment : Buyer
-    {
-        public Seller Seller
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
+    public class Payment : Buyer
+    {        
         enum PaymentType
         {
             Visa = 0,
