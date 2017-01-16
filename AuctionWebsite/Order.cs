@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,11 @@ namespace Kreation
         #region Properties
         [Key]
         public int Id { get; set; } 
-        public virtual Buyer Buyer { get; set; }
-        public virtual Seller Seller { get; set; }
-        public virtual Product Product { get; set; }
-        public decimal Price { get; set; }
         public DateTime DateCreated { get; set; } //time when the order got created
+        [ForeignKey("Auction")]
+        public int AuctionId { get; set; }
+        public virtual Auction Auction { get; set; }
+
         #endregion
 
         #region Constructor
@@ -25,5 +26,6 @@ namespace Kreation
             DateCreated = DateTime.Now;
         }
         #endregion
+
     }
 }

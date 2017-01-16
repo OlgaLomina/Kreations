@@ -19,5 +19,12 @@ namespace Kreation
         public virtual ICollection<Sale> Sales { get; set; } //one seller with multiple sales
         public virtual ICollection<Review> Reviews { get; set; } //one seller with multiple reviews
         #endregion
+
+        #region Constructor
+        public Seller()
+        {
+            MemberSince = DateTime.Now;
+        }
+        #endregion
     }
 }

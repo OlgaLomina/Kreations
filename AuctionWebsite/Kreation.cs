@@ -28,6 +28,7 @@ namespace Kreation
             
         }
 
+       
         /// <summary>
         /// method to add a review to the website
         /// </summary>
@@ -67,6 +68,44 @@ namespace Kreation
                 model.SaveChanges();
             }
         }
+
+        public static void AddSeller(Seller Seller)
+        {
+            using (var model = new KreationModel())
+            {
+                model.Sellers.Add(Seller);
+                model.SaveChanges();
+            }
+        }
+
+        public static void AddProduct(Product Product)
+        {
+            using (var model = new KreationModel())
+            {
+                model.Products.Add(Product);
+                model.SaveChanges();
+            }
+        }
+
+        public static void AddSale(Sale Sale)
+        {
+            using (var model = new KreationModel())
+            {
+                model.Sales.Add(Sale);
+                model.SaveChanges();
+            }
+        }
+
+        public static void AddBid(Bid Bid)
+        {
+            using (var model = new KreationModel())
+            {
+                model.Bids.Add(Bid);
+                model.SaveChanges();
+            }
+        }
+
+
 
         #endregion
     }

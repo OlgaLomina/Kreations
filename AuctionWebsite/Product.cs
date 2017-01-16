@@ -13,6 +13,7 @@ namespace Kreation
     {
         [Key]
         public int Id { get; set; }
+        public virtual ICollection<Sale> Sales { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
         public virtual ICollection<Auction> Auctions { get; set; }
     }
