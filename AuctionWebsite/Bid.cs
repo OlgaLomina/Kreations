@@ -28,7 +28,7 @@ namespace Kreation
 
         #region Constructor
         public Bid(decimal BidPrice, int BuyerId, int AuctionId)
-        {
+        {            
             this.BidPrice = BidPrice;
             this.BuyerId = BuyerId;
             this.AuctionId = AuctionId;

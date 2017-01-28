@@ -54,12 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attribute.cs" />
     <Compile Include="Auction.cs" />
     <Compile Include="Bid.cs" />
     <Compile Include="Buyer.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Kreation.cs" />
     <Compile Include="KreationModel.cs" />
+    <Compile Include="Migrations\201701272050358_InitialCreate.cs" />
+    <Compile Include="Migrations\201701272050358_InitialCreate.Designer.cs">
+      <DependentUpon>201701272050358_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701280551129_Update.cs" />
+    <Compile Include="Migrations\201701280551129_Update.Designer.cs">
+      <DependentUpon>201701280551129_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="Product.cs" />
@@ -72,7 +82,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201701272050358_InitialCreate.resx">
+      <DependentUpon>201701272050358_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701280551129_Update.resx">
+      <DependentUpon>201701280551129_Update.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

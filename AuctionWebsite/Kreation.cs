@@ -14,6 +14,7 @@ namespace Kreation
     public static class Kreation
     {
         #region Methods
+
         /// <summary>
         /// method to add a Buyer to the website
         /// </summary>
@@ -27,8 +28,7 @@ namespace Kreation
             }       
             
         }
-
-       
+               
         /// <summary>
         /// method to add a review to the website
         /// </summary>
@@ -57,7 +57,7 @@ namespace Kreation
         }
 
         /// <summary>
-        /// method to add an auction to the website
+        /// method to add an order to the website
         /// </summary>
         /// <param name="Order"></param>
         public static void AddOrder(Order Order)
@@ -69,6 +69,10 @@ namespace Kreation
             }
         }
 
+        /// <summary>
+        /// method to add a seller
+        /// </summary>
+        /// <param name="Seller"></param>
         public static void AddSeller(Seller Seller)
         {
             using (var model = new KreationModel())
@@ -78,6 +82,10 @@ namespace Kreation
             }
         }
 
+        /// <summary>
+        /// add a product
+        /// </summary>
+        /// <param name="Product"></param>
         public static void AddProduct(Product Product)
         {
             using (var model = new KreationModel())
@@ -87,6 +95,10 @@ namespace Kreation
             }
         }
 
+        /// <summary>
+        /// add a sale
+        /// </summary>
+        /// <param name="Sale"></param>
         public static void AddSale(Sale Sale)
         {
             using (var model = new KreationModel())
@@ -96,13 +108,34 @@ namespace Kreation
             }
         }
 
+        /// <summary>
+        /// add a bid to the auction, it checks whether the bid price is larger than the current highest bid plus
+        /// the minimum increment, if it is larger, add the bid to Bids table and update the current highest bid; 
+        /// if it is less, bid will not be added to be Bids table and console will write error
+        /// </summary>
+        /// <param name="Bid"></param>
         public static void AddBid(Bid Bid)
         {
+            int AuctionId = Bid.AuctionId;
+
             using (var model = new KreationModel())
             {
-                model.Bids.Add(Bid);
-                model.SaveChanges();
+                int HighestBidId = model.Auctions.Where(a => a.Id == AuctionId).Single().HighestBidId;
+                decimal HighestBidPrice = model.Bids.Where(b => b.Id == HighestBidId).Single().BidPrice;
+                decimal MinBid = model.Auctions.Where(a => a.Id == AuctionId).Single().MinIncrement + HighestBidPrice;
+
+                if (Bid.BidPrice >= MinBid)
+                {
+                    model.Bids.Add(Bid);
+                    model.SaveChanges();
+                    Auction.GetHighestBid(Bid.AuctionId);
+                }
+                else
+                {
+                    System.Console.WriteLine("You need to bid more than " + MinBid + " dollars.");
+                }
             }
+            Auction.GetHighestBid(Bid.AuctionId);
         }
 
 

@@ -30,8 +30,8 @@ namespace Kreation
             //Kreation.AddSale(sale1);
 
             ////to add an auction to the database
-            //Auction TestAuction = new Auction(1);
-            //Kreation.AddAuction(TestAuction);
+            //Auction TestAuction2 = new Auction(1);
+            //Kreation.AddAuction(TestAuction2);
 
             ////to add a buyer to the database                         
             //Buyer buyer2 = new Buyer();
@@ -44,12 +44,15 @@ namespace Kreation
             //buyer3.LastName = "3";
             //Kreation.AddBuyer(buyer3);
 
-            ////add a bid
-            //Bid bid1 = new Bid(200, 1, 1);
-            //Kreation.AddBid(bid1);
+            //add a bid
+           
+            Bid bid4 = new Bid(500, 4, 1);
+            Kreation.AddBid(bid4);
+            System.Console.Read();         
 
-            //Bid bid2 = new Bid(400, 2, 1);
-            //Kreation.AddBid(bid2);
+
+            //Bid bid5 = new Bid(1400, 2, 2);
+            //Kreation.AddBid(bid5);
 
             //Bid bid3 = new Bid(600, 3, 1);
             //Kreation.AddBid(bid3);
@@ -64,7 +67,8 @@ namespace Kreation
             //TestReview.ReviewContent = "This is a test review.";
             //Kreation.AddReview(TestReview);
 
-            Auction.GetHighestBid(1);
+            //to get the highest bid of an auction
+
         }
     }
 }

@@ -13,19 +13,45 @@ namespace Kreation
     public class Auction
     {
         #region Properties
+        
         [Key]
         public int Id { get; set; }
 
-        public DateTime BeginTime { get; set; } //start time of the Auction
+        /// <summary>
+        /// start time of the Auction
+        /// </summary>
+        public DateTime BeginTime { get; set; }
 
-        public TimeSpan Duration { get; set;} //duration of the Auction  
+        /// <summary>
+        /// duration of the Auction  
+        /// </summary>
+        public TimeSpan Duration { get; set;}
 
-        public int HighestBidId { get; set; }
+        /// <summary>
+        /// end time of the Auction
+        /// </summary>
+        public DateTime EndTime { get; set; }
+
+        /// <summary>
+        /// this property saves the id of the highest Bid received in an auciton
+        /// </summary>
+        public int HighestBidId { get; set; } 
+
+        /// <summary>
+        /// the minimum increment of the bid, seller to decide whether to set one
+        /// </summary>
+        public decimal MinIncrement { get; set; }
         
+        /// <summary>
+        /// the Sale that the auction is associated to
+        /// </summary>
         [ForeignKey("Sale")]
         public int SaleId { get; set; }
         public virtual Sale Sale { get; set; } //one Auction to one sale       
 
+        /// <summary>
+        /// Bids received in this auction
+        /// </summary>
         public virtual ICollection<Bid> Bids { get; set; } //one Auction can have many bids 
 
         #endregion
@@ -44,8 +70,15 @@ namespace Kreation
         {
 
         }
+
         #endregion
+
         #region methods
+
+        /// <summary>
+        /// this method updates the HighestBidId property to store the highest bid Id
+        /// </summary>
+        /// <param name="auctionId"></param>
         public static void GetHighestBid(int auctionId)
         {
             using (var model = new KreationModel())
@@ -56,11 +89,20 @@ namespace Kreation
                                    where Auction.Id == auctionId
                                    select Auction).Single();
                 auction.HighestBidId = HighestBid.Id;
-                model.SaveChanges();
-
+                model.SaveChanges();                
             }
             
         }
+
+        /// <summary>
+        /// get end time of the auction 
+        /// </summary>
+        /// <returns>DateTime</returns>
+        public DateTime GetEndTime()
+        {
+            return this.BeginTime + this.Duration;
+        }
+
         #endregion
 
 

@@ -1,0 +1,10 @@
+D:\GitHub\Kreation\KreationTests\bin\Debug\KreationTests.dll
+D:\GitHub\Kreation\KreationTests\bin\Debug\KreationTests.pdb
+D:\GitHub\Kreation\KreationTests\bin\Debug\AuctionWebsite.exe
+D:\GitHub\Kreation\KreationTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\GitHub\Kreation\KreationTests\bin\Debug\EntityFramework.dll
+D:\GitHub\Kreation\KreationTests\bin\Debug\AuctionWebsite.pdb
+D:\GitHub\Kreation\KreationTests\bin\Debug\EntityFramework.xml
+D:\GitHub\Kreation\KreationTests\obj\Debug\KreationTests.csprojResolveAssemblyReference.cache
+D:\GitHub\Kreation\KreationTests\obj\Debug\KreationTests.dll
+D:\GitHub\Kreation\KreationTests\obj\Debug\KreationTests.pdb
