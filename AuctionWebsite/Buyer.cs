@@ -16,6 +16,7 @@ namespace Kreation
         public string LastName { get; set; }
         public DateTime MemberSince { get; set; } //the time when buyer first register
         public int CountryId { get; set; } //one buyer to one country
+        public int CartId { get; set; }
         public virtual ICollection<Bid> Bids  { get; set; } //one buyer to many bids     
         public virtual ICollection<Order> Orders { get; set; } //one buyer to many orders
         public virtual ICollection<Review> Reviews { get; set; } //one buyer to many reviews

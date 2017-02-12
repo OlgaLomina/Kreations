@@ -27,11 +27,7 @@ namespace Kreation
         /// </summary>
         public TimeSpan Duration { get; set;}
 
-        /// <summary>
-        /// end time of the Auction
-        /// </summary>
-        public DateTime EndTime { get; set; }
-
+       
         /// <summary>
         /// this property saves the id of the highest Bid received in an auciton
         /// </summary>

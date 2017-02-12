@@ -13,12 +13,11 @@ namespace Kreation
     public class Product
     {
         [Key]
-        public int Id { get; set; }
-        public int ProductAttributeId { get; set; }
+        public int Id { get; set; }       
+        public decimal Price { get; set; }
         
         public virtual ICollection<Sale> Sales { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
-        public virtual ICollection<Auction> Auctions { get; set; }
 
         /// <summary>
         ///product's attributes are in Product Attribute class

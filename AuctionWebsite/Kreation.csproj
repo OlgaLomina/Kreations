@@ -54,10 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attribute.cs" />
     <Compile Include="Auction.cs" />
     <Compile Include="Bid.cs" />
     <Compile Include="Buyer.cs" />
+    <Compile Include="Cart.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Kreation.cs" />
     <Compile Include="KreationModel.cs" />
@@ -69,11 +69,50 @@
     <Compile Include="Migrations\201701280551129_Update.Designer.cs">
       <DependentUpon>201701280551129_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702080632475_buyer properties.cs" />
+    <Compile Include="Migrations\201702080632475_buyer properties.Designer.cs">
+      <DependentUpon>201702080632475_buyer properties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702080638209_Delete attributes.cs" />
+    <Compile Include="Migrations\201702080638209_Delete attributes.Designer.cs">
+      <DependentUpon>201702080638209_Delete attributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702080645099_product price.cs" />
+    <Compile Include="Migrations\201702080645099_product price.Designer.cs">
+      <DependentUpon>201702080645099_product price.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702080656219_delete product in auction.cs" />
+    <Compile Include="Migrations\201702080656219_delete product in auction.Designer.cs">
+      <DependentUpon>201702080656219_delete product in auction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702080702581_delete end time attribute in the auction.cs" />
+    <Compile Include="Migrations\201702080702581_delete end time attribute in the auction.Designer.cs">
+      <DependentUpon>201702080702581_delete end time attribute in the auction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702120736272_cart class added.cs" />
+    <Compile Include="Migrations\201702120736272_cart class added.Designer.cs">
+      <DependentUpon>201702120736272_cart class added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702120740561_carts added to database.cs" />
+    <Compile Include="Migrations\201702120740561_carts added to database.Designer.cs">
+      <DependentUpon>201702120740561_carts added to database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702120753097_carts add buyer attribute.cs" />
+    <Compile Include="Migrations\201702120753097_carts add buyer attribute.Designer.cs">
+      <DependentUpon>201702120753097_carts add buyer attribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702120756162_cart.cs" />
+    <Compile Include="Migrations\201702120756162_cart.Designer.cs">
+      <DependentUpon>201702120756162_cart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702120806166_addtocart method.cs" />
+    <Compile Include="Migrations\201702120806166_addtocart method.Designer.cs">
+      <DependentUpon>201702120806166_addtocart method.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="Product.cs" />
-    <Compile Include="ProductAttribute.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Review.cs" />
@@ -91,6 +130,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701280551129_Update.resx">
       <DependentUpon>201701280551129_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702080632475_buyer properties.resx">
+      <DependentUpon>201702080632475_buyer properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702080638209_Delete attributes.resx">
+      <DependentUpon>201702080638209_Delete attributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702080645099_product price.resx">
+      <DependentUpon>201702080645099_product price.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702080656219_delete product in auction.resx">
+      <DependentUpon>201702080656219_delete product in auction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702080702581_delete end time attribute in the auction.resx">
+      <DependentUpon>201702080702581_delete end time attribute in the auction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702120736272_cart class added.resx">
+      <DependentUpon>201702120736272_cart class added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702120740561_carts added to database.resx">
+      <DependentUpon>201702120740561_carts added to database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702120753097_carts add buyer attribute.resx">
+      <DependentUpon>201702120753097_carts add buyer attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702120756162_cart.resx">
+      <DependentUpon>201702120756162_cart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702120806166_addtocart method.resx">
+      <DependentUpon>201702120806166_addtocart method.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

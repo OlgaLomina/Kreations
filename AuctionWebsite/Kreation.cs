@@ -138,8 +138,14 @@ namespace Kreation
             Auction.GetHighestBid(Bid.AuctionId);
         }
 
-
-
+        public static void AddCart(Cart Cart)
+        {
+            using (var model = new KreationModel())
+            {
+                model.Carts.Add(Cart);
+                model.SaveChanges();
+            }
+        }
         #endregion
     }
 }

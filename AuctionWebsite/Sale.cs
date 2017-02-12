@@ -21,6 +21,7 @@ namespace Kreation
         [ForeignKey("Product")]
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }
+     
 
         // public virtual Auction Auction { get; set; }
         // not able to create database with the line that got commented above, why? error message below:
@@ -29,6 +30,10 @@ namespace Kreation
         #endregion
 
         #region Constructor
+        public Sale()
+        {
+
+        }
         public Sale(int SellerId, int ProductId)
         {
             this.SellerId = SellerId;

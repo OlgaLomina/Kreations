@@ -45,10 +45,10 @@ namespace Kreation
             //Kreation.AddBuyer(buyer3);
 
             //add a bid
-           
-            Bid bid4 = new Bid(500, 4, 1);
-            Kreation.AddBid(bid4);
-            System.Console.Read();         
+
+            //Bid bid4 = new Bid(500, 4, 1);
+            //Kreation.AddBid(bid4);
+            //System.Console.Read();
 
 
             //Bid bid5 = new Bid(1400, 2, 2);
@@ -69,6 +69,22 @@ namespace Kreation
 
             //to get the highest bid of an auction
 
+            //to add a cart
+            //Cart newCart = new Cart(1005);
+            //Kreation.AddCart(newCart);
+
+            //to add a sale to newCart
+            //Cart.AddToCart(5, 1);
+            //Cart.AddToCart(5, 3);
+            //Cart.AddToCart(5, 5);
+            using (var model = new KreationModel())
+            {
+
+                Cart cart = model.Carts.FirstOrDefault(i => i.Id == 5);
+                Console.WriteLine(cart.Sales);
+
+            }
+            
         }
     }
 }

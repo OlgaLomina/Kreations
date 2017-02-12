@@ -26,12 +26,12 @@ namespace Kreation
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<ProductAttribute> ProductAttributes { get; set; }
+        public virtual DbSet<Product> Products { get; set; }       
         public virtual DbSet<Review> Reviews { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<Seller> Sellers { get; set; }
-        
+        public virtual DbSet<Cart> Carts { get; set; }
+
     }
 
     //public class MyEntity
