@@ -15,7 +15,7 @@ namespace Kreation
     {
         static void Main(string[] args)
         {
-            ////to add a seller 
+            //to add a seller
             //Seller nicole = new Seller();
             //nicole.FirstName = "Nicole";
             //nicole.LastName = "Pi";
@@ -30,7 +30,7 @@ namespace Kreation
             //Kreation.AddSale(sale1);
 
             ////to add an auction to the database
-            //Auction TestAuction2 = new Auction(1);
+            //Auction TestAuction2 = new Auction(2);
             //Kreation.AddAuction(TestAuction2);
 
             ////to add a buyer to the database                         
@@ -73,18 +73,25 @@ namespace Kreation
             //Cart newCart = new Cart(1005);
             //Kreation.AddCart(newCart);
 
-            //to add a sale to newCart
+            //to add Sale 1,3,5 to newCart (cart id = 5)
             //Cart.AddToCart(5, 1);
             //Cart.AddToCart(5, 3);
             //Cart.AddToCart(5, 5);
-            using (var model = new KreationModel())
-            {
 
-                Cart cart = model.Carts.FirstOrDefault(i => i.Id == 5);
-                Console.WriteLine(cart.Sales);
+            //using (var model = new KreationModel())
+            //{
 
-            }
-            
+            //    Cart cart = model.Carts.FirstOrDefault(i => i.Id == 5);
+            //    for(int i=0; i<cart.GetCartList().Count(); i++)
+            //    {
+            //        Console.WriteLine(cart.GetCartList()[i].ProductId);
+            //    }
+
+            //    Console.ReadLine();
+            //}
+
+
+
         }
     }
 }

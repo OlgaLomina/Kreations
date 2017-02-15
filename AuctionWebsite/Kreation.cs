@@ -116,28 +116,32 @@ namespace Kreation
         /// <param name="Bid"></param>
         public static void AddBid(Bid Bid)
         {
-            int AuctionId = Bid.AuctionId;
+            int AuctionId = Bid.AuctionId; //get the id of the auction that the bid is to go to
 
             using (var model = new KreationModel())
             {
-                int HighestBidId = model.Auctions.Where(a => a.Id == AuctionId).Single().HighestBidId;
-                decimal HighestBidPrice = model.Bids.Where(b => b.Id == HighestBidId).Single().BidPrice;
-                decimal MinBid = model.Auctions.Where(a => a.Id == AuctionId).Single().MinIncrement + HighestBidPrice;
+                int HighestBidId = model.Auctions.Where(a => a.Id == AuctionId).Single().GetCurrentHighestBidId(); //get the id of the highest bid in this auction
+                decimal HighestBidPrice = model.Bids.Where(b => b.Id == HighestBidId).Single().BidPrice; //get the price of the highest bid
+                decimal MinBid = model.Auctions.Where(a => a.Id == AuctionId).Single().MinIncrement + HighestBidPrice; //calculate the min bid price acceptable, considering the min increment
 
                 if (Bid.BidPrice >= MinBid)
                 {
                     model.Bids.Add(Bid);
                     model.SaveChanges();
-                    Auction.GetHighestBid(Bid.AuctionId);
+                    
                 }
                 else
                 {
                     System.Console.WriteLine("You need to bid more than " + MinBid + " dollars.");
                 }
             }
-            Auction.GetHighestBid(Bid.AuctionId);
+           
         }
 
+        /// <summary>
+        /// add a cart to the database
+        /// </summary>
+        /// <param name="Cart"></param>
         public static void AddCart(Cart Cart)
         {
             using (var model = new KreationModel())

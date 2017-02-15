@@ -17,48 +17,44 @@ namespace Kreation
         [Key]
         public int Id { get; set; }
 
-        /// <summary>
-        /// start time of the Auction
-        /// </summary>
+        /// <summary>DateTime start time of the Auction</summary>
         public DateTime BeginTime { get; set; }
 
-        /// <summary>
-        /// duration of the Auction  
-        /// </summary>
+        /// <summary>TimeSpan duration of the Auction</summary>
         public TimeSpan Duration { get; set;}
 
        
-        /// <summary>
-        /// this property saves the id of the highest Bid received in an auciton
-        /// </summary>
-        public int HighestBidId { get; set; } 
+        /// <summary>int the id of the highest Bid received in an auciton</summary>
+        public int WinningBidId { get; set; } 
 
-        /// <summary>
-        /// the minimum increment of the bid, seller to decide whether to set one
-        /// </summary>
+        /// <summary>decimal the minimum increment of the bid, default 0</summary>
         public decimal MinIncrement { get; set; }
         
-        /// <summary>
-        /// the Sale that the auction is associated to
-        /// </summary>
+        /// <summary>int Id of the Sale that the auction is associated to</summary>
         [ForeignKey("Sale")]
         public int SaleId { get; set; }
         public virtual Sale Sale { get; set; } //one Auction to one sale       
 
-        /// <summary>
-        /// Bids received in this auction
-        /// </summary>
+        /// <summary>collection of Bids received in this auction</summary>
         public virtual ICollection<Bid> Bids { get; set; } //one Auction can have many bids 
 
         #endregion
         
         #region Constructor
-        public Auction(int SaleId) //taking only parameter SaleId for testing purpose
+        public Auction(int SaleId, TimeSpan Duration, decimal MinIncrement) 
         {
-            TimeSpan duration = new TimeSpan(0, 12, 0, 0, 0); //default one 12 hr duration for bidding, to be revised that seller can set the duration
-            this.Duration = duration;
-            this.BeginTime = DateTime.Now; //begin time starts when object is created, for testing only
             this.SaleId = SaleId;
+            this.Duration = Duration;
+            this.MinIncrement = MinIncrement;
+            this.BeginTime = DateTime.Now;
+        }
+
+        public Auction(int SaleId)
+        {
+            this.Duration = new TimeSpan(1, 0, 0, 0, 0); //default 1 day duration for bidding
+            this.BeginTime = DateTime.Now; //begin time starts when auction object is created
+            this.SaleId = SaleId;
+            this.MinIncrement = 0; //default no min increment for bids
 
         }
 
@@ -71,33 +67,42 @@ namespace Kreation
 
         #region methods
 
+
         /// <summary>
-        /// this method updates the HighestBidId property to store the highest bid Id
+        /// return the highest bid id of this auction, *this does not update the database, just return the current highest bid id
         /// </summary>
-        /// <param name="auctionId"></param>
-        public static void GetHighestBid(int auctionId)
-        {
-            using (var model = new KreationModel())
-            {
-                var bids = model.Bids.Where(b=>b.AuctionId == auctionId).ToList();
-                var HighestBid = bids.OrderByDescending(p => p.BidPrice).First();
-                Auction auction = (from Auction in model.Auctions
-                                   where Auction.Id == auctionId
-                                   select Auction).Single();
-                auction.HighestBidId = HighestBid.Id;
-                model.SaveChanges();                
-            }
+        /// <returns>int id of the highest bid</returns>
+        public int GetCurrentHighestBidId()
+        {            
+                List<Bid> bids = this.Bids.ToList(); //get list of bids for this auction
+                Bid highestBid = bids.OrderByDescending(p => p.BidPrice).ToList()[0]; //get the highest bid in the bids list
+                return highestBid.Id;
             
         }
-
+        
         /// <summary>
         /// get end time of the auction 
         /// </summary>
-        /// <returns>DateTime</returns>
+        /// <returns>DateTime end time of the auction</returns>
         public DateTime GetEndTime()
         {
             return this.BeginTime + this.Duration;
         }
+
+        /// <summary>
+        /// update the database in the end of the auction to store the winning bid id
+        /// </summary>
+        public void GetWinningBid()
+        {
+            using (var model = new KreationModel())
+            {                             
+                Auction auction = (from Auction in model.Auctions where Auction.Id == this.Id select Auction).Single();
+                auction.WinningBidId = this.GetCurrentHighestBidId();
+                model.SaveChanges();
+            }
+
+        }
+
 
         #endregion
 

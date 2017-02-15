@@ -109,6 +109,10 @@
     <Compile Include="Migrations\201702120806166_addtocart method.Designer.cs">
       <DependentUpon>201702120806166_addtocart method.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702152143191_revised properties names in Auction class.cs" />
+    <Compile Include="Migrations\201702152143191_revised properties names in Auction class.Designer.cs">
+      <DependentUpon>201702152143191_revised properties names in Auction class.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Payment.cs" />
@@ -160,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702120806166_addtocart method.resx">
       <DependentUpon>201702120806166_addtocart method.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702152143191_revised properties names in Auction class.resx">
+      <DependentUpon>201702152143191_revised properties names in Auction class.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
